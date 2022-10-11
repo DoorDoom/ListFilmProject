@@ -1,24 +1,28 @@
 package com.myoctober.listfilmapplication;
 
+import android.content.res.Resources;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FilmViewHolder extends RecyclerView.ViewHolder{
     private TextView titleFilm;
-    private TextView subtitileFilm;
+    private ImageView filmImage;
 
     public FilmViewHolder(@NonNull View itemView) {
         super(itemView);
 
         titleFilm = itemView.findViewById(R.id.title);
-        subtitileFilm = itemView.findViewById(R.id.subtitle);
+        filmImage = itemView.findViewById(R.id.imageView);
     }
 
     public void bind(FilmItem item){
+
         titleFilm.setText(item.title);
-        subtitileFilm.setText(item.subtitle);
+        filmImage.setImageResource(item.picture);
     }
 }

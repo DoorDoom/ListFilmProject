@@ -36,7 +36,7 @@ public class FilmsRepository {
                 Log.i(TAG_REPOSITORY, jsonArray.toString());
                 for (int i = 0; i<jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    items.add(new FilmItem(jsonObject.getString("title"), jsonObject.getString("subtitle"), jsonObject.getString("picture")));
+                    items.add(new FilmItem(jsonObject.getString("title"), jsonObject.getString("subtitle"), jsonObject.getInt("picture")));
                 }
             }
         }catch (JSONException e) {

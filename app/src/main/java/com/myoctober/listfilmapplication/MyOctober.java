@@ -53,26 +53,30 @@ public class MyOctober extends Application {
                         case 1:
                             film.put("title", resources.getString(R.string.jojo1_title));
                             film.put("subtitle", resources.getString(R.string.jojo1_text));
+                            film.put("picture", getResources().getIdentifier("jojo1", "drawable", getPackageName()));
                             break;
                         case 2:
                             film.put("title", resources.getString(R.string.jojo2_title));
                             film.put("subtitle", resources.getString(R.string.jojo2_text));
+                            film.put("picture", getResources().getIdentifier("jojo2", "drawable", getPackageName()));
                             break;
                         case 3:
                             film.put("title",resources.getString( R.string.jojo3_title));
                             film.put("subtitle", resources.getString(R.string.jojo3_text));
+                            film.put("picture", getResources().getIdentifier("jojo3", "drawable", getPackageName()));
                             break;
                         case 4:
                             film.put("title", resources.getString(R.string.jojo4_title));
                             film.put("subtitle", resources.getString(R.string.jojo4_text));
+                            film.put("picture", getResources().getIdentifier("jojo4", "drawable", getPackageName()));
                             break;
                         case 5:
                             film.put("title", resources.getString(R.string.jojo5_title));
                             film.put("subtitle", resources.getString(R.string.jojo5_text));
+                            film.put("picture", getResources().getIdentifier("jojo5", "drawable", getPackageName()));
                             break;
                     }
                     Log.i(TAG_APP, "Создан элемент фильма: " + film.toString());
-                    film.put("picture", "3rd");
                     filmArray.put(film);
                 } catch (JSONException e) {
                     Log.i(TAG_APP, "Ошибка при создании элемента фильма: " + i);

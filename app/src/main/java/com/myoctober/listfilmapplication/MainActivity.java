@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.addBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                items.add(2, new FilmItem("Добавленный фильм", "Его подзаголовок", ""));
+                items.add(2, new FilmItem("Добавленный фильм", "Его подзаголовок", 001));
                 recyclerView.getAdapter().notifyItemInserted(3);
             }
         });
