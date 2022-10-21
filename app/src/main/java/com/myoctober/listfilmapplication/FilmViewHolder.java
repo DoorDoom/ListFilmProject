@@ -7,22 +7,22 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.myoctober.listfilmapplication.databinding.ItemFilmBinding;
+
 public class FilmViewHolder extends RecyclerView.ViewHolder{
-    private TextView titleFilm;
-    private ImageView filmImage;
+    private ItemFilmBinding binding;
 
     public FilmViewHolder(@NonNull View itemView) {
         super(itemView);
-
-        titleFilm = itemView.findViewById(R.id.title);
-        filmImage = itemView.findViewById(R.id.imageView);
+        binding = DataBindingUtil.bind(itemView);
     }
 
     public void bind(FilmItem item){
 
-        titleFilm.setText(item.title);
-        filmImage.setImageResource(item.picture);
+        binding.setFilmItem(item);
     }
 }

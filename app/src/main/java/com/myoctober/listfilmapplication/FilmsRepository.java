@@ -3,6 +3,7 @@ package com.myoctober.listfilmapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.ImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +23,6 @@ public class FilmsRepository {
     private static List<FilmItem> items = new ArrayList<>();
     private static FilmsRepository instance;
 
-
     private FilmsRepository(Context context) {
 
         sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE);
@@ -36,7 +36,9 @@ public class FilmsRepository {
                 Log.i(TAG_REPOSITORY, jsonArray.toString());
                 for (int i = 0; i<jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    items.add(new FilmItem(jsonObject.getString("title"), jsonObject.getString("subtitle"), jsonObject.getInt("picture")));
+                    items.add(new FilmItem(jsonObject.getString("title"),
+                            jsonObject.getString("subtitle"),
+                            jsonObject.getInt("picture")));
                 }
             }
         }catch (JSONException e) {

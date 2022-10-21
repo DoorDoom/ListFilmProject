@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.myoctober.listfilmapplication.databinding.ItemFilmBinding;
+
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -29,7 +31,7 @@ public class FilmItemAdapter extends RecyclerView.Adapter {
         if(viewType == VIEW_TYPE_HEADER)
             return new SimpleTextHeaderViewHolder(inflater.inflate(R.layout.header_text, parent, false));
         else
-            return new FilmViewHolder(inflater.inflate(R.layout.item_film, parent, false));
+            return new FilmViewHolder(ItemFilmBinding.inflate(inflater,parent, false).getRoot());
     }
 
     @Override

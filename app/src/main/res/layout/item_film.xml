@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="filmItem"
+            type="com.myoctober.listfilmapplication.FilmItem" />
+    </data>
+
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -20,6 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@{filmItem.picture}"
             tools:srcCompat="@drawable/ic_baseline_image_24"></ImageView>
 
         <TextView
@@ -30,6 +38,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:padding="@dimen/general_padding"
+            android:text="@{filmItem.title}"
             tools:text="@string/jojo1_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -64,3 +73,4 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+</layout>

@@ -4,11 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.myoctober.listfilmapplication.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +23,23 @@ public class MainActivity extends AppCompatActivity {
 
     final String TAG = "myLogs";
     private List<FilmItem> items = new ArrayList<>();
+    ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         items.addAll(FilmsRepository.getInstance(this).getItems());
 
-        RecyclerView recyclerView = findViewById(R.id.recycleView);
+        RecyclerView recyclerView = binding.recycleView;
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new FilmItemAdapter(LayoutInflater.from(this), items));
 
-        findViewById(R.id.deleteBtn).setOnClickListener(new View.OnClickListener() {
+        binding.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 items.remove(2);
@@ -39,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.addBtn).setOnClickListener(new View.OnClickListener() {
+        binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                items.add(2, new FilmItem("Добавленный фильм", "Его подзаголовок", 001));
+                items.add(2, new FilmItem("Добавленный фильм",
+                        "Его подзаголовок", getResources().getIdentifier("ic_baseline_image_24", "drawable", getPackageName())));
                 recyclerView.getAdapter().notifyItemInserted(3);
             }
         });
